@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Custom theme implementation for an 'input' #type form element.
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the input element.
+ * - children: Optional additional rendered elements.
+ *
+ * @see template_preprocess_input()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set type = attributes.type %}
+{% if type == 'button' or type == 'submit' %}
+  {% set additional_class = [
+    'uk-button',
+    type == 'submit' ? 'uk-button-primary' : 'uk-button-default'
+  ] %}
+{% elseif type == 'checkbox' %}
+  {% set additional_class = ['uk-checkbox'] %}
+{% elseif type == 'radio' %}
+  {% set additional_class = ['uk-radio'] %}
+{% elseif type == 'range' %}
+  {% set additional_class = ['uk-range'] %}
+{% elseif type == 'hidden' %}
+  {% set additional_class = [] %}
+{% else %}
+  {% set additional_class = ['uk-input'] %}
+{% endif %}
+{% include 'core/modules/system/templates/input.html.twig' with {
+  attributes: attributes.addClass(additional_class),
+  children: children
+} %}

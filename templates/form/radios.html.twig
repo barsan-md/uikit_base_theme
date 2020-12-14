@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Custom theme implementation for a 'radios' #type form element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The rendered radios.
+ *
+ * @see template_preprocess_radios()
+ *
+ * @ingroup themeable
+ */
+#}
+{% include 'core/modules/system/templates/radios.html.twig' with {
+  attributes: attributes.addClass('uk-form-controls'),
+  children: children
+} %}

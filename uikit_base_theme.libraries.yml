@@ -1,0 +1,15 @@
+uikit:
+  version: 3.5.16
+  css:
+    base:
+      css/uikit.min.css: { minified: true }
+  js:
+    js/uikit.min.js: { minified: true }
+    js/uikit-icons.min.js: { minified: true }
+
+global-styling:
+  js:
+    js/javascript-alter.js: {}
+  dependencies:
+    - core/drupal.tabledrag
+    - uikit_base_theme/uikit
